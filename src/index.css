@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10b981; /* Emerald Green */
+  --color-secondary: #f59e0b; /* Golden Yellow */
+  --color-accent: #0f172a; /* Navy / Dark */
+  --color-teal: #0d9488; /* Deep Teal */
+  --color-slate-gray: #475569;
+  --color-neutral-light: #f8fafc;
+  --color-neutral-dark: #0f172a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-neutral-light text-slate-800 font-sans selection:bg-primary/20;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    @apply bg-neutral-dark text-slate-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-sm shadow-primary/20;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-xl font-bold hover:bg-amber-600 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-sm shadow-secondary/10;
+  }
+
+  .card-glass {
+    @apply bg-white/90 backdrop-blur-md border border-slate-200 rounded-2xl shadow-sm overflow-hidden transition-all duration-300;
+  }
+
+  .dark .card-glass {
+    @apply bg-slate-800/40 border-slate-700/50 backdrop-blur-lg;
+  }
+  
+  .input-field {
+    @apply w-full h-12 px-4 rounded-xl border border-slate-200 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary/50 dark:bg-slate-900 transition-all;
+  }
+}
